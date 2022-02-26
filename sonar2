@@ -1,0 +1,28 @@
+#!/bin/bash
+#description: installation of Sonarqube on the system
+#Author: Foluke O
+#Date: 25-Feb-2022
+
+echo "installation of Java 11"
+sleep 3
+sudo yum update -y
+sleep 2
+sudo yum install java-11-openjdk-devel -y
+sleep 2
+sudo yum install java-11-openjdk -y
+sleep 2
+cd /opt
+sleep 2
+sudo yum install wget -y
+sleep 2
+sudo wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-9.3.0.51899.zip
+sleep 3
+sudo yum install unzip
+sleep 2
+sudo unzip /opt/sonarqube-9.3.0.51899.zip
+sleep 2
+sudo chown -R vagrant:vagrant /opt/sonarqube-9.3.0.51899
+sleep 2
+cd /opt/sonarqube-9.3.0.51899/bin/linux-x86-64
+sleep 3
+./sonar.sh start
